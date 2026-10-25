@@ -4,6 +4,7 @@ public class StepTracker {
 
     Scanner scanner;
     MonthData[] monthToData = new MonthData[12];
+    int goalByStepsPerDay = 10000;
 
     public StepTracker(Scanner scanner) {
         this.scanner = scanner;
@@ -38,4 +39,18 @@ public class StepTracker {
         monthToData[month - 1].days[day - 1] = numberSteps;
         System.out.println("Steps saved successfully.");
     }
+
+    void changeStepGoal() {
+        System.out.println("Enter a new daily step goal: ");
+        int newGoal = scanner.nextInt();
+
+        if (newGoal > 0) {
+            goalByStepsPerDay = newGoal;
+        } else {
+            System.out.println("The daily step goal must be greater than 0.");
+        }
+
+        System.out.println("Current daily step goal: " + goalByStepsPerDay);
+    }
 }
+

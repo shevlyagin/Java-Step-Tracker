@@ -22,6 +22,7 @@ public class Main {
 
                 case 2:
                     System.out.println("\nChange daily step goal");
+                    steptracker.changeStepGoal();
                     break;
 
                 case 3:
