@@ -27,6 +27,7 @@ public class Main {
 
                 case 3:
                     System.out.println("\nShow monthly statistics");
+                    steptracker.printStatistic();
                     break;
 
                 case 4:
