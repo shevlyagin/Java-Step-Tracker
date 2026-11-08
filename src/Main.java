@@ -12,6 +12,13 @@ public class Main {
             printMenu();
 
             System.out.print("\nEnter a command: ");
+
+            if (!scanner.hasNextInt()) {
+                System.out.println("Please enter a valid number.");
+                scanner.next();
+                continue;
+            }
+
             int command = scanner.nextInt();
 
             switch (command) {
