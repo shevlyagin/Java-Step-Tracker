@@ -16,6 +16,11 @@ public class StepTracker {
 
     void addNewNumberStepsPerDay() {
         System.out.println("Enter the month number (1-12): ");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Please enter a valid number.");
+            scanner.next();
+            return;
+        }
         int month = scanner.nextInt();
         if (month < 1 || month > 12) {
             System.out.println("Please enter a month between 1 and 12.");
@@ -23,6 +28,11 @@ public class StepTracker {
         }
 
         System.out.println("Enter the day number (1-30): ");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Please enter a valid number.");
+            scanner.next();
+            return;
+        }
         int day = scanner.nextInt();
         if (day < 1 || day > 30) {
             System.out.println("Please enter a day between 1 and 30.");
@@ -30,6 +40,11 @@ public class StepTracker {
         }
 
         System.out.println("Enter the number of steps: ");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Please enter a valid number.");
+            scanner.next();
+            return;
+        }
         int numberSteps = scanner.nextInt();
         if (numberSteps < 0) {
             System.out.println("The number of steps cannot be negative.");
@@ -42,6 +57,11 @@ public class StepTracker {
 
     void changeStepGoal() {
         System.out.println("Enter a new daily step goal: ");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Please enter a valid number.");
+            scanner.next();
+            return;
+        }
         int newGoal = scanner.nextInt();
 
         if (newGoal > 0) {
@@ -54,6 +74,11 @@ public class StepTracker {
 
     void printStatistic() {
         System.out.println("Enter the month number (1-12): ");
+        if (!scanner.hasNextInt()) {
+            System.out.println("Please enter a valid number.");
+            scanner.next();
+            return;
+        }
         int month = scanner.nextInt();
 
         if (month < 1 || month > 12) {
