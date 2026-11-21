@@ -51,7 +51,7 @@ public class StepTracker {
             return;
         }
 
-        monthToData[month - 1].days[day - 1] = numberSteps;
+        monthToData[month - 1].setSteps(day, numberSteps);
         System.out.println("Steps saved successfully.");
     }
 

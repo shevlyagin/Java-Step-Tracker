@@ -1,5 +1,12 @@
 public class MonthData {
-    int [] days = new int[30];
+    private int[] days = new int[30];
+
+    void setSteps(int day, int steps) {
+        if (day < 1 || day > 30 || steps < 0) {
+            return;
+        }
+        days[day - 1] = steps;
+    }
 
     int sumStepsFromMonth() {
         int sum = 0;
