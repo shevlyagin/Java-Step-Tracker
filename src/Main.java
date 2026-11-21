@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        StepTracker steptracker = new StepTracker(scanner);
+        StepTracker stepTracker = new StepTracker(scanner);
 
         while (true) {
             printMenu();
@@ -24,17 +24,17 @@ public class Main {
             switch (command) {
                 case 1:
                     System.out.println("\nEnter daily steps");
-                    steptracker.addNewNumberStepsPerDay();
+                    stepTracker.addNewNumberStepsPerDay();
                     break;
 
                 case 2:
                     System.out.println("\nChange daily step goal");
-                    steptracker.changeStepGoal();
+                    stepTracker.changeStepGoal();
                     break;
 
                 case 3:
                     System.out.println("\nShow monthly statistics");
-                    steptracker.printStatistic();
+                    stepTracker.printStatistic();
                     break;
 
                 case 4:
