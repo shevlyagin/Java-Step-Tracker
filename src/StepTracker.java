@@ -2,8 +2,12 @@ import java.util.Scanner;
 
 public class StepTracker {
 
+    private static final int MONTHS_IN_YEAR = 12;
+
     Scanner scanner;
-    MonthData[] monthToData = new MonthData[12];
+    Converter converter = new Converter();
+
+    MonthData[] monthToData = new MonthData[MONTHS_IN_YEAR];
     int goalByStepsPerDay = 10000;
 
     public StepTracker(Scanner scanner) {
@@ -22,7 +26,7 @@ public class StepTracker {
             return;
         }
         int month = scanner.nextInt();
-        if (month < 1 || month > 12) {
+        if (!isValidMonth(month)) {
             System.out.println("Please enter a month between 1 and 12.");
             return;
         }
@@ -34,7 +38,7 @@ public class StepTracker {
             return;
         }
         int day = scanner.nextInt();
-        if (day < 1 || day > 30) {
+        if (day < 1 || day > MonthData.DAYS_IN_MONTH) {
             System.out.println("Please enter a day between 1 and 30.");
             return;
         }
@@ -81,30 +85,33 @@ public class StepTracker {
         }
         int month = scanner.nextInt();
 
-        if (month < 1 || month > 12) {
+        if (!isValidMonth(month)) {
             System.out.println("Please enter a month between 1 and 12.");
             return;
         }
 
         MonthData monthData = monthToData[month - 1];
 
-        int totalSteps = monthData.sumStepsFromMonth();
+        long totalSteps = monthData.sumStepsFromMonth();
         System.out.println("Total steps: " + totalSteps);
 
         int maximumSteps = monthData.maxSteps();
         System.out.println("Maximum steps: " + maximumSteps);
 
-        double averageStepsDay = totalSteps / 30.0;
-        System.out.println("Average daily steps: " + averageStepsDay);
+        double averageStepsDay = (double) totalSteps / MonthData.DAYS_IN_MONTH;
+        System.out.printf("Average daily steps: %.2f%n", averageStepsDay);
 
-        Converter converter = new Converter();
-        int km = converter.convertToKm(totalSteps);
-        int kilocalories = converter.convertToKilocalories(totalSteps);
+        double km = converter.convertToKm(totalSteps);
+        long kilocalories = converter.convertToKilocalories(totalSteps);
         System.out.println("Distance: " + km + " km");
         System.out.println("Calories: " + kilocalories + " kcal");
 
         int bestStreak = monthData.bestSeries(goalByStepsPerDay);
         System.out.println("Best streak: " + bestStreak);
+    }
+
+    boolean isValidMonth(int month) {
+        return month >= 1 && month <= MONTHS_IN_YEAR;
     }
 }
 
